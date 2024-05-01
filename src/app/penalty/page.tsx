@@ -8,7 +8,7 @@ const PenaltyCalculator: React.FC = () => {
   function Loading() {
     setIsLoading(true);
   }
-  //set a time duration for processing
+  //set a time out for processing
   setTimeout(() => {
     setIsLoading(false);
   }, 500);
@@ -85,7 +85,7 @@ const PenaltyCalculator: React.FC = () => {
               type="text"
               value={bankName}
               onChange={(e) => setBankName(e.target.value)}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-2  bg-neutral-950 text-white"
+              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
               maxLength={50}
             />
           </div>
@@ -98,7 +98,7 @@ const PenaltyCalculator: React.FC = () => {
               type="number"
               value={requiredMAB}
               onChange={(e) => handleChange(e, setRequiredMAB, 5)}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-2  bg-neutral-950 text-white"
+              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
               required
               maxLength={5}
             />
@@ -112,7 +112,7 @@ const PenaltyCalculator: React.FC = () => {
               type="number"
               value={accountBalance}
               onChange={(e) => handleChange(e, setAccountBalance, 7)}
-              className="rounded-md border border-neutral-500  w-full relative z-10  mt-2 bg-neutral-950 text-white focus:ring-2 focus:ring-teal-500"
+              className="rounded-md border border-neutral-500  w-full relative z-10  mt-2 outline-none bg-neutral-950 text-white focus:ring-2 focus:ring-teal-500 py-2 px-2 leading-tight"
               required
               maxLength={7}
             />
@@ -159,7 +159,7 @@ const PenaltyCalculator: React.FC = () => {
                 handleChange(e, setShortfallAmount, 5);
                 calculateShortfallAmount(e.target.value);
               }}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-2  bg-neutral-950 text-white"
+              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
               required
               maxLength={5}
               readOnly // Make it read-only so that the user cannot edit
@@ -174,7 +174,7 @@ const PenaltyCalculator: React.FC = () => {
               type="number"
               value={serviceTaxPercentage}
               onChange={(e) => setServiceTaxPercentage(e.target.value)}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-2  bg-neutral-950 text-white"
+              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
               required
               maxLength={2}
               readOnly // Make it read-only so that the user cannot edit
@@ -224,8 +224,8 @@ const PenaltyCalculator: React.FC = () => {
         )}
       </div>
       <div className="mt-8 lg:p-10 ">
-        <p className="text-purple-600 font-bold">On this page</p>
-        <ol className="list-disc pl-5 text-[#E3E3E3]">
+        <p className="text-lime-500 font-bold">On this page</p>
+        <ol className="list-disc pl-5 text-teal-500">
           <li>The project is in its initial stage</li>
           <li>This small initiative represents a real-world scenario</li>
           <li>I want to solve a real-world problem</li>

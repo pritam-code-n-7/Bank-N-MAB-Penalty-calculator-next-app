@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="flex flex-col p-2 items-center gap-14 min-h-screen">
       <div className="md:text-lg lg:text-xl">
-        <Marquee style={{ color: "cyan", fontWeight: "bold" }}>
+        <Marquee style={{ color: "teal", fontWeight: "bold" }}>
           you can choose MAB from your choice of any bank
         </Marquee>
       </div>

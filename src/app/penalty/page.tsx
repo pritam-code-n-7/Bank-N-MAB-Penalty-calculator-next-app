@@ -11,7 +11,7 @@ const PenaltyCalculator: React.FC = () => {
   //set a time duration for processing
   setTimeout(() => {
     setIsLoading(false);
-  }, 2000);
+  }, 500);
   const [bankName, setBankName] = useState<string>("");
   const [requiredMAB, setRequiredMAB] = useState<string>("");
   const [accountBalance, setAccountBalance] = useState<string>("");

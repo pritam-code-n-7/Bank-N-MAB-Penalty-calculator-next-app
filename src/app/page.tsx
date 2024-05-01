@@ -1,22 +1,42 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Marquee from "react-fast-marquee";
 import { MdLightbulbOutline } from "react-icons/md";
 import { useRouter } from "next/navigation";
+
 export default function Home() {
   const router = useRouter();
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    // Redirect to the penalty page within a timeout
+    setTimeout(() => {
+      router.push("/penalty");
+    }, 500);
+  };
 
   return (
     <div className="flex flex-col p-2 items-center gap-14 min-h-screen">
-      <Marquee style={{ color: "cyan", fontWeight: "bold" }}>
-        you can choose MAB from your choice of any bank
-      </Marquee>
-      <div className="btransition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 font-bold p-2 rounded">
-        <button onClick={() => router.push("/penalty")}>
-          Click now to know your N-MAB Penalty!
+      <div className="md:text-lg lg:text-xl">
+        <Marquee style={{ color: "cyan", fontWeight: "bold" }}>
+          you can choose MAB from your choice of any bank
+        </Marquee>
+      </div>
+
+      <div
+        className={`transition ease-in-out delay-900 duration-300 font-bold p-2 rounded ${
+          isClicked ? "bg-indigo-500 translate-y-1 scale-110" : "bg-blue-500"
+        }`}
+        onClick={handleClick}
+      >
+        <button>
+          {isClicked
+            ? "Redirecting..."
+            : "Click now to know your N-MAB Penalty!"}
         </button>
       </div>
+
       <div className="bg-emerald-950 flex flex-col p-6 rounded-lg items-center pb-20 border-l-8 border-lime-500">
         <div className="flex items-center mb-4">
           <MdLightbulbOutline size={30} />

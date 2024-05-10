@@ -1,9 +1,16 @@
 "use client";
 import CustomInput from "@/components/CustomInput";
+import DropDown from "@/components/DropDown";
 import LimeButton from "@/components/LimeButton";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 const PenaltyCalculator: React.FC = () => {
+  //bank name dropdown state
+  const [bank, setBank] = useState<string>("");
+  const handleBank = (e: ChangeEvent<HTMLSelectElement>) => {
+    setBank(e.target.value);
+  };
+
   const [bankName, setBankName] = useState<string>("");
   const [requiredMAB, setRequiredMAB] = useState<string>("");
   const [accountBalance, setAccountBalance] = useState<string>("");
@@ -62,46 +69,39 @@ const PenaltyCalculator: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-2 md:divide-x-2 ml-4 mr-4">
+    <div className="flex flex-col lg:flex-row gap-2 md:divide-x-2 justify-center items-center ml-6 mr-8">
       <div className="container mx-auto mt-8 lg:mt-0 lg:ml-40">
-        <h2 className="text-2xl font-bold mb-4 text-lime-500">
+        <h2 className="text-xl font-bold mb-4 text-lime-500">
           Penalty Calculator
         </h2>
         <form onSubmit={handleSubmit} className="w-full max-w-md">
-          <CustomInput
-            label="Bank Name:"
-            htmlFor="bankName"
-            id="bankName"
-            type="text"
-            value={bankName}
-            onChange={(e) => setBankName(e.target.value)}
-            maxLength={50}
-            min={0}
-          />
+          <DropDown value={bank} onChange={handleBank} id="bank" name="bank" />
+
           <CustomInput
             label="Required MAB:"
-            htmlFor="requiredMAB"
-            id="requiredMAB"
+            htmlFor="requiredmab"
+            id="requiredmab"
             type="number"
             value={requiredMAB}
             onChange={(e) => handleChange(e, setRequiredMAB, 5)}
             maxLength={5}
             min={0}
-           
+            required
           />
           <CustomInput
             label="Account Balance:"
-            htmlFor="accountBalance"
-            id="accountBalance"
+            htmlFor="accountbalance"
+            id="accountbalance"
             type="number"
             value={accountBalance}
             onChange={(e) => handleChange(e, setAccountBalance, 7)}
             maxLength={7}
             min={0}
+            required
           />
           <div className="mb-4">
             <label
-              htmlFor="radio"
+              htmlFor="radio-savings"
               className="block text-lime-500 font-bold mb-2"
             >
               Select Account Type:
@@ -109,6 +109,7 @@ const PenaltyCalculator: React.FC = () => {
             <div>
               <label className="inline-flex items-center">
                 <input
+                  id="radio-savings"
                   type="radio"
                   className="form-radio"
                   value="savings"
@@ -119,6 +120,7 @@ const PenaltyCalculator: React.FC = () => {
               </label>
               <label className="inline-flex items-center ml-6">
                 <input
+                  id="radio-current"
                   type="radio"
                   className="form-radio"
                   value="current"
@@ -129,10 +131,11 @@ const PenaltyCalculator: React.FC = () => {
               </label>
             </div>
           </div>
+
           <CustomInput
             label="Shortfall Amount:"
-            htmlFor="shortfallAmount"
-            id="shortfallAmount"
+            htmlFor="shortfallamount"
+            id="shortfallamount"
             type="number"
             value={shortfallAmount}
             onChange={(e) => {
@@ -141,16 +144,20 @@ const PenaltyCalculator: React.FC = () => {
             }}
             maxLength={5}
             min={0}
+            required
+            readOnly
           />
           <CustomInput
             label="Service Tax Percentage:"
-            htmlFor="serviceTaxPercentage"
-            id="serviceTaxPercentage"
+            htmlFor="servicetaxpercentage"
+            id="servicetaxpercentage"
             type="number"
             value={serviceTaxPercentage}
             onChange={(e) => setServiceTaxPercentage(e.target.value)}
             maxLength={2}
             min={0}
+            required
+            readOnly
           />
           <LimeButton name="Calculate Penalty" type="submit" />
         </form>

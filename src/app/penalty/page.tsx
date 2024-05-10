@@ -1,4 +1,5 @@
 "use client";
+import CustomInput from "@/components/CustomInput";
 import LimeButton from "@/components/LimeButton";
 import React, { useState } from "react";
 
@@ -67,47 +68,37 @@ const PenaltyCalculator: React.FC = () => {
           Penalty Calculator
         </h2>
         <form onSubmit={handleSubmit} className="w-full max-w-md">
-          <div className="mb-4">
-            <label htmlFor="bankName" className="block text-white">
-              Bank Name:
-            </label>
-            <input
-              id="bankName"
-              type="text"
-              value={bankName}
-              onChange={(e) => setBankName(e.target.value)}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
-              maxLength={50}
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="requiredMAB" className="block text-white">
-              Required MAB:
-            </label>
-            <input
-              id="requiredMAB"
-              type="number"
-              value={requiredMAB}
-              onChange={(e) => handleChange(e, setRequiredMAB, 5)}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
-              required
-              maxLength={5}
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="accountBalance" className="block text-white">
-              Account Balance:
-            </label>
-            <input
-              id="accountBalance"
-              type="number"
-              value={accountBalance}
-              onChange={(e) => handleChange(e, setAccountBalance, 7)}
-              className="rounded-md border border-neutral-500  w-full relative z-10  mt-2 outline-none bg-neutral-950 text-white focus:ring-2 focus:ring-teal-500 py-2 px-2 leading-tight"
-              required
-              maxLength={7}
-            />
-          </div>
+          <CustomInput
+            label="Bank Name:"
+            htmlFor="bankName"
+            id="bankName"
+            type="text"
+            value={bankName}
+            onChange={(e) => setBankName(e.target.value)}
+            maxLength={50}
+            min={0}
+          />
+          <CustomInput
+            label="Required MAB:"
+            htmlFor="requiredMAB"
+            id="requiredMAB"
+            type="number"
+            value={requiredMAB}
+            onChange={(e) => handleChange(e, setRequiredMAB, 5)}
+            maxLength={5}
+            min={0}
+           
+          />
+          <CustomInput
+            label="Account Balance:"
+            htmlFor="accountBalance"
+            id="accountBalance"
+            type="number"
+            value={accountBalance}
+            onChange={(e) => handleChange(e, setAccountBalance, 7)}
+            maxLength={7}
+            min={0}
+          />
           <div className="mb-4">
             <label
               htmlFor="radio"
@@ -138,39 +129,29 @@ const PenaltyCalculator: React.FC = () => {
               </label>
             </div>
           </div>
-          <div className="mb-4">
-            <label htmlFor="shortfallAmount" className="block text-white">
-              Shortfall Amount:
-            </label>
-            <input
-              id="shortfallAmount"
-              type="number"
-              value={shortfallAmount}
-              onChange={(e) => {
-                handleChange(e, setShortfallAmount, 5);
-                calculateShortfallAmount(e.target.value);
-              }}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
-              required
-              maxLength={5}
-              readOnly // Make it read-only so that the user cannot edit
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="serviceTaxPercentage" className="block text-white">
-              Service Tax Percentage:
-            </label>
-            <input
-              id="serviceTaxPercentage"
-              type="number"
-              value={serviceTaxPercentage}
-              onChange={(e) => setServiceTaxPercentage(e.target.value)}
-              className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
-              required
-              maxLength={2}
-              readOnly // Make it read-only so that the user cannot edit
-            />
-          </div>
+          <CustomInput
+            label="Shortfall Amount:"
+            htmlFor="shortfallAmount"
+            id="shortfallAmount"
+            type="number"
+            value={shortfallAmount}
+            onChange={(e) => {
+              handleChange(e, setShortfallAmount, 5);
+              calculateShortfallAmount(e.target.value);
+            }}
+            maxLength={5}
+            min={0}
+          />
+          <CustomInput
+            label="Service Tax Percentage:"
+            htmlFor="serviceTaxPercentage"
+            id="serviceTaxPercentage"
+            type="number"
+            value={serviceTaxPercentage}
+            onChange={(e) => setServiceTaxPercentage(e.target.value)}
+            maxLength={2}
+            min={0}
+          />
           <LimeButton name="Calculate Penalty" type="submit" />
         </form>
         {penaltyAmount !== null && (

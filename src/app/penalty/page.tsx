@@ -1,17 +1,8 @@
 "use client";
+import LimeButton from "@/components/LimeButton";
 import React, { useState } from "react";
 
 const PenaltyCalculator: React.FC = () => {
-  //create a state
-  const [isLoading, setIsLoading] = useState(false);
-  //create a normal function to handle the click event
-  function Loading() {
-    setIsLoading(true);
-  }
-  //set a time out for processing
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 500);
   const [bankName, setBankName] = useState<string>("");
   const [requiredMAB, setRequiredMAB] = useState<string>("");
   const [accountBalance, setAccountBalance] = useState<string>("");
@@ -70,7 +61,7 @@ const PenaltyCalculator: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-2 divide-x-2 ml-4">
+    <div className="flex flex-col lg:flex-row gap-2 md:divide-x-2 ml-4 mr-4">
       <div className="container mx-auto mt-8 lg:mt-0 lg:ml-40">
         <h2 className="text-2xl font-bold mb-4 text-lime-500">
           Penalty Calculator
@@ -180,39 +171,7 @@ const PenaltyCalculator: React.FC = () => {
               readOnly // Make it read-only so that the user cannot edit
             />
           </div>
-          <button
-            onClick={Loading}
-            type="submit"
-            className="bg-lime-500 p-2 rounded flex "
-          >
-            {isLoading ? (
-              <>
-                <svg
-                  className="animate-spin h-5 w-5 mr-3 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-                Calculating Penalty...
-              </>
-            ) : (
-              "Calculate Penalty"
-            )}
-          </button>
+          <LimeButton name="Calculate Penalty" type="submit" />
         </form>
         {penaltyAmount !== null && (
           <div className="mt-2">
@@ -225,7 +184,7 @@ const PenaltyCalculator: React.FC = () => {
       </div>
       <div className="mt-8 lg:p-10 ">
         <p className="text-lime-500 font-bold">On this page</p>
-        <ol className="list-disc pl-5 text-teal-500">
+        <ol className="list-disc pl-5 text-black">
           <li>The project is in its initial stage</li>
           <li>This small initiative represents a real-world scenario</li>
           <li>I want to solve a real-world problem</li>

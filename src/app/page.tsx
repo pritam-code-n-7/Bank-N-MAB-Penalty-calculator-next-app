@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="flex flex-col p-2 items-center gap-14 min-h-screen">
       <div className="md:text-lg lg:text-xl">
-        <Marquee style={{ color: "teal", fontWeight: "bold" }}>
+        <Marquee style={{ color: "black", fontWeight: "bold" }}>
           you can choose MAB from your choice of any bank
         </Marquee>
       </div>
@@ -37,7 +37,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="bg-emerald-950 flex flex-col p-6 rounded-lg items-center pb-20 border-l-8 border-lime-500">
+      <div className="bg-emerald-950 flex flex-col p-6 rounded-lg items-center justify-center pb-20 border-l-8 border-lime-500">
         <div className="flex items-center mb-4">
           <MdLightbulbOutline size={30} />
           <h2 className="text-green-300 text-2xl font-bold uppercase">TIP</h2>

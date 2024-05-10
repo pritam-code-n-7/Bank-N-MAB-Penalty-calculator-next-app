@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gradient-to-r from-indigo-500">
+        <div className="min-h-screen bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 ">
           <div className="flex pb-2 justify-center">
             <p className="text-3xl mt-5 ml-4 text-[#E3E3E3]">
               Non-maintainance MAB penalty calculator

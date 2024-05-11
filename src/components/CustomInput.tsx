@@ -8,11 +8,10 @@ const CustomInput: React.FC<InputFieldT> = ({
   type,
   value,
   onChange,
-  maxLength,
+
   min,
   required,
   readOnly,
-  children
 }) => {
   return (
     <div className="mb-4">
@@ -23,18 +22,12 @@ const CustomInput: React.FC<InputFieldT> = ({
         id={id}
         type={type}
         value={value}
-        onChange={
-          onChange as React.ChangeEventHandler<
-            HTMLInputElement | HTMLSelectElement
-          >
-        }
-        maxLength={maxLength}
+        onChange={onChange}
         min={min}
         required={required}
         readOnly={readOnly}
         className="rounded-md border border-neutral-500 focus:ring-2 focus:ring-teal-500 outline-none w-full relative z-10 mt-2 bg-neutral-950 text-white py-2 px-2 leading-tight"
       />
-      {children}
     </div>
   );
 };

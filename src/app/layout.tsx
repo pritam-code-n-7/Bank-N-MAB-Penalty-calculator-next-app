@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className="min-h-screen bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 ">
           <div className="flex pb-2 justify-center">
             <p className="text-4xl font-bold mt-5 ml-4 text-[#fff] font-mono">
-              Non-maintainance MAB penalty calculator
+              Non-maintainance MAB penalty calculator{" "}v-1.0.0
             </p>
           </div>
           {children}

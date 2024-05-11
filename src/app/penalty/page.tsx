@@ -11,7 +11,6 @@ const PenaltyCalculator: React.FC = () => {
     setBank(e.target.value);
   };
 
-  const [bankName, setBankName] = useState<string>("");
   const [requiredMAB, setRequiredMAB] = useState<string>("");
   const [accountBalance, setAccountBalance] = useState<string>("");
   const [shortfallAmount, setShortfallAmount] = useState<string>("");
@@ -64,7 +63,6 @@ const PenaltyCalculator: React.FC = () => {
     setRequiredMAB("");
     setAccountBalance("");
     setShortfallAmount("");
-    setBankName("");
     setServiceTaxPercentage("");
   };
 
@@ -84,7 +82,6 @@ const PenaltyCalculator: React.FC = () => {
             type="number"
             value={requiredMAB}
             onChange={(e) => handleChange(e, setRequiredMAB, 5)}
-            maxLength={5}
             min={0}
             required
           />
@@ -94,8 +91,7 @@ const PenaltyCalculator: React.FC = () => {
             id="accountbalance"
             type="number"
             value={accountBalance}
-            onChange={(e) => handleChange(e, setAccountBalance, 7)}
-            maxLength={7}
+            onChange={(e) => handleChange(e, setAccountBalance, 4)}
             min={0}
             required
           />
@@ -142,7 +138,6 @@ const PenaltyCalculator: React.FC = () => {
               handleChange(e, setShortfallAmount, 5);
               calculateShortfallAmount(e.target.value);
             }}
-            maxLength={5}
             min={0}
             required
             readOnly
@@ -154,7 +149,6 @@ const PenaltyCalculator: React.FC = () => {
             type="number"
             value={serviceTaxPercentage}
             onChange={(e) => setServiceTaxPercentage(e.target.value)}
-            maxLength={2}
             min={0}
             required
             readOnly
@@ -173,7 +167,7 @@ const PenaltyCalculator: React.FC = () => {
       <div className="mt-8 lg:p-10 ">
         <p className="text-lime-500 font-bold">On this page</p>
         <ol className="list-disc pl-5 text-black">
-          <li>The project is in its initial stage</li>
+          <li>The app is not useful unless you do not have information about banks policy</li>
           <li>This small initiative represents a real-world scenario</li>
           <li>I want to solve a real-world problem</li>
         </ol>

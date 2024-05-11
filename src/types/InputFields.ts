@@ -7,7 +7,7 @@ export type InputFieldT = {
   type: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  maxLength?: number;
+  
   min?: number;
   required?: boolean;
   readOnly?: boolean;

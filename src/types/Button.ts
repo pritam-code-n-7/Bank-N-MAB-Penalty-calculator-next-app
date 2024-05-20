@@ -1,5 +1,6 @@
 export type buttonTypeT = {
   name: string;
-  type: "submit";
+  type: "submit"| "reset" |"button"
+  onClick?:()=>void
  
 };

@@ -2,14 +2,21 @@
 import CustomInput from "@/components/CustomInput";
 import DropDown from "@/components/DropDown";
 import LimeButton from "@/components/LimeButton";
+import { useRouter } from "next/navigation";
 import React, { ChangeEvent, useState } from "react";
 
 const PenaltyCalculator: React.FC = () => {
-  //bank name dropdown state
+  // bank name dropdown state
   const [bank, setBank] = useState<string>("");
   const handleBank = (e: ChangeEvent<HTMLSelectElement>) => {
     setBank(e.target.value);
   };
+
+  // navigate to homepage
+  const router = useRouter();
+  function handleBack() {
+    router.push("/");
+  }
 
   const [requiredMAB, setRequiredMAB] = useState<string>("");
   const [accountBalance, setAccountBalance] = useState<string>("");
@@ -67,8 +74,8 @@ const PenaltyCalculator: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-2 md:divide-x-2 justify-center items-center ml-6 mr-8">
-      <div className="container mx-auto mt-8 lg:mt-0 lg:ml-40">
+    <div className="flex flex-col lg:flex-row gap-2 md:divide-x-2 justify-center items-center p-4 md:p-8 lg:p-16">
+      <div className="container mx-auto mt-8 lg:mt-0 lg:ml-40 max-w-2xl">
         <h2 className="text-xl font-bold mb-4 text-lime-500">
           Penalty Calculator
         </h2>
@@ -164,13 +171,19 @@ const PenaltyCalculator: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="mt-8 lg:p-10 ">
+      <div className="mt-8 lg:p-10">
         <p className="text-lime-500 font-bold">On this page</p>
         <ol className="list-disc pl-5 text-black">
-          <li>The app is not useful unless you do not have information about banks policy</li>
+          <li>
+            The app is not useful unless you do not have information about banks
+            policy
+          </li>
           <li>This small initiative represents a real-world scenario</li>
           <li>I want to solve a real-world problem</li>
         </ol>
+      </div>
+      <div className="flex mt-8 lg:ml-10">
+        <LimeButton name={"Back"} type="button" onClick={handleBack} />
       </div>
     </div>
   );

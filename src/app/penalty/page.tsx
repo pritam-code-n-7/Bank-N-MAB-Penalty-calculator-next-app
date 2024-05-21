@@ -22,7 +22,7 @@ const PenaltyCalculator: React.FC = () => {
   const [accountBalance, setAccountBalance] = useState<string>("");
   const [shortfallAmount, setShortfallAmount] = useState<string>("");
   const [serviceTaxPercentage, setServiceTaxPercentage] = useState<string>("");
-  const [penaltyAmount, setPenaltyAmount] = useState<number | null>(null);
+  const [penaltyAmount, setPenaltyAmount] = useState<string>("");
   const [radio, setRadio] = useState<string>("");
 
   const handleChange = (
@@ -66,7 +66,7 @@ const PenaltyCalculator: React.FC = () => {
       shortfallAmountFloat * (serviceTaxPercentageFloat / 100),
       500
     );
-    setPenaltyAmount(penalty);
+    setPenaltyAmount(penalty.toFixed(2));
     setRequiredMAB("");
     setAccountBalance("");
     setShortfallAmount("");

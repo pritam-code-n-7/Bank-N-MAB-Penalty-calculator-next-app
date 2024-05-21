@@ -1,5 +1,5 @@
 import { buttonTypeT } from "@/types/Button";
-import React from "react";
+import React, { memo } from "react";
 
 const LimeButton = ({ name, type, onClick }: buttonTypeT) => {
   return (
@@ -11,4 +11,4 @@ const LimeButton = ({ name, type, onClick }: buttonTypeT) => {
   );
 };
 
-export default LimeButton;
+export default memo(LimeButton);

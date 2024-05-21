@@ -25,14 +25,11 @@ export default function Home() {
       </div>
 
       <div
-        className={`transition ease-in-out delay-900 duration-300 font-bold font-sans p-2 rounded ${
-          isClicked
-            ? "bg-purple-500 translate-y-1 scale-110"
-            : "dark:bg-indigo-500"
+        className={`transition ease-in-out duration-300 font-bold font-sans p-2 rounded ${
+          isClicked ? "bg-purple-500 translate-y-1 scale-110" : "bg-indigo-500"
         }`}
-        onClick={handleClick}
       >
-        <button>
+        <button onClick={handleClick}>
           {isClicked
             ? "Redirecting..."
             : "Click now to know your N-MAB Penalty!"}

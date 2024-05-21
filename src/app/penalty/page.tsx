@@ -3,14 +3,14 @@ import CustomInput from "@/components/CustomInput";
 import DropDown from "@/components/DropDown";
 import LimeButton from "@/components/LimeButton";
 import { useRouter } from "next/navigation";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useCallback, useState } from "react";
 
 const PenaltyCalculator: React.FC = () => {
   // bank name dropdown state
   const [bank, setBank] = useState<string>("");
-  const handleBank = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleBank = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     setBank(e.target.value);
-  };
+  },[]);
 
   // navigate to homepage
   const router = useRouter();

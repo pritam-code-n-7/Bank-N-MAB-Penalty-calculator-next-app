@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       <div
-        className={`transition ease-in-out duration-300 font-bold font-sans p-2 rounded ${
+        className={`transition ease-in-out duration-300 font-bold font-sans text-white p-2 rounded ${
           isClicked ? "bg-purple-500 translate-y-1 scale-110" : "bg-indigo-500"
         }`}
       >

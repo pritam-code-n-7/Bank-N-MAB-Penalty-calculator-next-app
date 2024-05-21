@@ -5,7 +5,7 @@ export type InputFieldT = {
   htmlFor: string;
   id: string;
   type: string;
-  value: string;
+  value: string ;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   
   min?: number;

@@ -10,7 +10,7 @@ const PenaltyCalculator: React.FC = () => {
   const [bank, setBank] = useState<string>("");
   const handleBank = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     setBank(e.target.value);
-  },[]);
+  }, []);
 
   // navigate to homepage
   const router = useRouter();

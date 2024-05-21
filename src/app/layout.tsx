@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 ">
-          <div className="flex pb-2 justify-center">
+          <div className="flex pb-2 justify-center text-center">
             <div className="text-4xl font-bold mt-5 ml-4 text-[#fff] font-mono">
               <p>Non-maintainance MAB penalty calculator </p> <p>v-1.0.0</p>
             </div>

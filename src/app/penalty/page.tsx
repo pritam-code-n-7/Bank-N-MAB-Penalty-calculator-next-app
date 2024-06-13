@@ -15,7 +15,7 @@ const PenaltyCalculator: React.FC = () => {
   // navigate to homepage
   const router = useRouter();
   function handleBack() {
-    router.push("/");
+    router.push("/home");
   }
 
   const [requiredMAB, setRequiredMAB] = useState<string>("");

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/context";
+import Header from "./header/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +20,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 ">
-          <div className="flex pb-2 justify-center">
-            <div className="text-4xl font-bold mt-5 ml-4 text-[#fff] font-mono">
-              <p>Non-maintainance MAB penalty calculator </p> <p>v-1.0.0</p>
-            </div>
-          </div>
-          {children}
+          <AuthProvider>
+            <Header />
+            <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              {children}
+            </main>
+          </AuthProvider>
         </div>
       </body>
     </html>

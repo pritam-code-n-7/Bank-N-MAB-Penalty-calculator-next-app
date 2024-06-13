@@ -1,7 +1,7 @@
-import { InputFieldT } from "@/types/InputFields";
+import { InputFieldType } from "@/types/InputFields";
 import React from "react";
 
-const CustomInput: React.FC<InputFieldT> = ({
+const CustomInput: React.FC<InputFieldType> = ({
   label,
   htmlFor,
   id,

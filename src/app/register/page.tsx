@@ -7,12 +7,14 @@ import { doCreateUserWithEmailAndPassword } from "@/services/auth";
 import { useAuth } from "@/context";
 import Link from "next/link";
 import WhiteButton from "@/components/WhiteButton";
+import toast from "react-hot-toast";
 
 const Register: React.FC = () => {
   const [isRegister, setIsRegister] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   //initialize user validation
   const {
@@ -28,12 +30,16 @@ const Register: React.FC = () => {
     try {
       if (!isRegister) {
         setIsRegister(true);
+        if (password !== confirmPassword) {
+          setError("Password not matched");
+          return;
+        }
         await doCreateUserWithEmailAndPassword(email, password);
-        alert("Registration Successful");
+        toast.success("Registration Successful");
         reset();
       }
-    } catch (err) {
-      console.error("Registration failed", err);
+    } catch (error: any) {
+      toast.error("Registration failed", error);
     }
   };
 
@@ -92,6 +98,7 @@ const Register: React.FC = () => {
                 register={register}
                 error={errors.password}
               />
+              {error ? <p className="text-red-500">{error}</p> : " "}
 
               <div className="flex justify-center">
                 <WhiteButton name="Register Here" type="submit" />

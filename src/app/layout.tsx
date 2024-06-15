@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context";
 import Header from "./header/page";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           <AuthProvider>
             <Header />
             <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <Toaster />
               {children}
             </main>
           </AuthProvider>

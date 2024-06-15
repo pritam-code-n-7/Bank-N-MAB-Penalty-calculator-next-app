@@ -6,6 +6,7 @@ import React from "react";
 import WhiteButton from "@/components/WhiteButton";
 import { doSignOut } from "@/services/auth";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const HeaderDemo: React.FC = () => {
   const { userLoggedIn } = useAuth();
@@ -25,7 +26,7 @@ const HeaderDemo: React.FC = () => {
                     router.push("/");
                   })
                   .catch((error) =>
-                    console.error("unusual error occurred", error)
+                    toast.error("unusual error occurred", error)
                   );
               }}
             />

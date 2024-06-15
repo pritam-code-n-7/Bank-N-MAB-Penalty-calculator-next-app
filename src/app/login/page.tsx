@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { doSignInWithEmailAndPassword } from "@/services/auth";
 import { useAuth } from "@/context/index";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const Login: React.FC = () => {
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
@@ -28,11 +29,11 @@ const Login: React.FC = () => {
       if (!isSignIn) {
         setIsSignIn(true);
         await doSignInWithEmailAndPassword(email, password);
-        alert("Login Successful");
+        toast.success("Login Successful");
         reset();
       }
-    } catch (err) {
-      console.error("Registration failed", err);
+    } catch (err:any) {
+      toast.error("Registration failed", err.message);
     }
   };
 
